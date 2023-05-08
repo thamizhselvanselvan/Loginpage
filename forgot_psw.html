@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheels</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,300;1,700;1,900&family=Varta:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            },
+        }
+        module.exports = {
+            plugins: [
+                require('taos/plugin')
+            ],
+            safelist: [
+                '!duration-[0ms]',
+                '!delay-[0ms]',
+                'html.js :where([class*="taos:"]:not(.taos-init))'
+            ],
+            content: {
+                transform: (content) => content.replace(/taos:/g, ''),
+            },
+        }
+
+    </script>
+    <script>document.documentElement.classList.add('js')</script>
+    <style>
+        .design1 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-bottom-left-radius: 100%;
+        }
+    
+        .design2 {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            border-top-left-radius: 100%;
+        }
+    
+        .img-animation {
+            width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login w-full h-screen flex overflow-hidden">
+        <div class="w-1/2 bg-green-50 flex justify-center items-center">
+            <img src="./images/forgot_pws.png" alt="" class="img-animation">
+        </div>
+        <div class="w-1/2 flex justify-center items-center relative ">
+            <div class="design1 w-20 h-20 bg-green-50"></div>
+            <div class="design2 w-20 h-20 bg-green-50"></div>
+            <div class="w-6/12 delay-[300ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0"
+                data-taos-offset="300">
+                <p class="text-center text-sm font-bold pb-2">Forgot Password</p>
+                <p class="text-center text-sm text-gray-400 pb-4">No worries, we'll send you reset instructions</p>
+                <div>
+                    <label for="email"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                    <input type="email" id="email"
+                        class="block w-full p-2 text-gray-900 border border-gray-300 rounded bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+                <a
+                    class="w-full mt-7 font-bold flex justify-center items-center block w-full p-2 text-white rounded bg-green-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">Reset Password
+                </a>
+                
+            <div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/taos@1.0.3/dist/taos.js"></script>
+
+</body>
+</html>
