@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheels</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,300;1,700;1,900&family=Varta:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            },
+        }
+        module.exports = {
+            plugins: [
+                require('taos/plugin')
+            ],
+            safelist: [
+                '!duration-[0ms]',
+                '!delay-[0ms]',
+                'html.js :where([class*="taos:"]:not(.taos-init))'
+            ],
+            content: {
+                transform: (content) => content.replace(/taos:/g, ''),
+            },
+        }
+
+    </script>
+    <script>document.documentElement.classList.add('js')</script>
+</head>
+
+<body>
+
+    <div class="login w-full h-screen flex overflow-hidden">
+        <div class="w-1/2 bg-green-50">
+            <img src="./images/10.png" alt="" class="img-animation">
+        </div>
+        <div class="w-1/2 flex justify-center items-center relative ">
+            <div class="design1 w-20 h-20 bg-green-50"></div>
+            <div class="design2 w-20 h-20 bg-green-50"></div>
+            <div class="w-6/12 delay-[300ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0"
+                data-taos-offset="300">
+                <div>
+                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                    <input type="name" id="name"
+                        class="block w-full p-2 text-gray-900 border border-gray-300 rounded bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+                <div class="pt-4">
+                    <label for="email"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                    <input type="email" id="email"
+                        class="block w-full p-2 text-gray-900 border border-gray-300 rounded bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+                <div class="pt-4">
+                    <label for="password"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                    <input type="password" id="password"
+                        class="block w-full p-2 text-gray-900 border border-gray-300 rounded bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+                <div class="pt-4">
+                    <label for="con_password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm Password</label>
+                    <input type="password" id="con_password"
+                        class="block w-full p-2 text-gray-900 border border-gray-300 rounded bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+                <div class="pt-4">
+                    <div>
+                        <label for="con_password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Roles</label>
+                        <button
+                            class=" w-full p-2 text-gray-900 border border-gray-300 rounded bg-gray-50 relative sm:text-xs flex items-center justify-between cursor-pointer"
+                            onclick="dropdownHandler()">
+                            Roles
+                            <div>
+                                <div class="hidden" id="close">
+                                    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.00016 0.666664L9.66683 5.33333L0.333496 5.33333L5.00016 0.666664Z" fill="#1F2937" />
+                                    </svg>
+                                </div>
+                                <div id="open">
+                                    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.00016 5.33333L0.333496 0.666664H9.66683L5.00016 5.33333Z" fill="#1F2937" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="w-64 mt-2 p-4 bg-white shadow rounded grid grid-cols-1 gap-2 absolute hidden" id="dropdown">
+                            <div class="flex items-center text-sm font-medium">
+                                <input type="checkbox">
+                                <span class="pl-2">Admin</span>
+                            </div>
+                            <div class="flex items-center text-sm font-medium">
+                                <input type="checkbox">
+                                <span class="pl-2">User</span>
+                            </div>
+                            <div class="flex items-center text-sm font-medium">
+                                <input type="checkbox">
+                                <span class="pl-2">Invoice</span>
+                            </div>
+                            <div class="flex items-center text-sm font-medium">
+                                <input type="checkbox">
+                                <span class="pl-2">CRM</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <a class="mt-7 w-full font-bold flex justify-center items-center block w-full p-2 text-white rounded bg-green-500 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">Sign
+                Up</a>
+            <div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/taos@1.0.3/dist/taos.js"></script>
+</body>
+
+<style>
+    .design1 {
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-bottom-left-radius: 100%;
+    }
+
+    .design2 {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        border-top-left-radius: 100%;
+    }
+
+    .img-animation {
+        position: relative;
+    }
+    .checkbox:checked+.check-icon {
+        display: flex;
+    }
+</style>
+
+<script>
+    let dropdown = document.getElementById("dropdown");
+    let open1 = document.getElementById("open");
+    let close1 = document.getElementById("close");
+
+    let flag = false;
+    const dropdownHandler = () => {
+        if (!flag) {
+            dropdown.classList.add("hidden");
+            open1.classList.add("hidden");
+            close1.classList.remove("hidden");
+            flag = true;
+        } else {
+            dropdown.classList.remove("hidden");
+            close1.classList.add("hidden");
+            open1.classList.remove("hidden");
+            flag = false;
+        }
+    };
+    const toggleSubDir = (check) => {
+        let subList1 = document.getElementById("sublist1");
+        let subList2 = document.getElementById("sublist2");
+        let subList3 = document.getElementById("sublist3");
+        switch (check) {
+            case 1:
+                subList3.classList.add("hidden");
+                subList2.classList.add("hidden");
+                subList1.classList.remove("hidden");
+                break;
+            case 2:
+                subList3.classList.add("hidden");
+                subList2.classList.remove("hidden");
+                subList1.classList.add("hidden");
+                break;
+            case 3:
+                subList3.classList.remove("hidden");
+                subList2.classList.add("hidden");
+                subList1.classList.add("hidden");
+                break;
+        }
+    };
+</script>
+</html>
